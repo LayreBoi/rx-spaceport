@@ -1,0 +1,8 @@
+.strike-through {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M100 0 L0 100 ' stroke='lightslategray' stroke-width='8'/><path d='M0 0 L100 100 ' stroke='lightslategray' stroke-width='8'/></svg>");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size: 100% 100%, auto;
+  border: solid gainsboro 2px;
+  //width: 300px;
+}
