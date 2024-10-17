@@ -1,11 +1,19 @@
 <mat-sidenav-container class="h-full">
   <mat-sidenav mode="side" opened>
-    <div class="flex flex-col mt-4">
-      <button mat-button class="mt-4">Ship Dock</button>
-      <button mat-button class="mt-4">Help</button>
-    </div>
+    <app-menu
+      [(pageToShow)]="pageToShow"
+      [dockingAllowed]="dockingAllowed"
+      (dockShip)="addShip($event)">
+    </app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-ship-dock></app-ship-dock>
+    @if (pageToShow === 'ship-dock') {
+      <app-ship-dock
+        (undock)="undock($event)"
+        [ships]="dockedShips">
+      </app-ship-dock>
+    } @else if (pageToShow === 'help-page') {
+      <app-help-page></app-help-page>
+    }
   </mat-sidenav-content>
 </mat-sidenav-container>

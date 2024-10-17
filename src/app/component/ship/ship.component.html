@@ -1,9 +1,9 @@
-<div class="flex flex-col w-88 h-100 m-8 bg-stone-800 border-stone-400 rounded-3xl border-4 text-stone-300">
+<div class="ship-card flex flex-col w-88 h-100 m-8 border-stone-400 rounded-3xl border-4 text-stone-300">
   <div class="flex flex-row justify-between items-center border-b-2 border-stone-400">
     <div class="flex justify-start p-4 text-lg">
       {{ ship.name }}
     </div>
-    <button mat-flat-button class="mr-4" (click)="undock()">Undock</button>
+    <button mat-flat-button class="mr-4" (click)="undock.emit()">Undock</button>
   </div>
   <div class="flex flex-row">
     <div class="flex flex-col h-80 justify-between items-start p-2">

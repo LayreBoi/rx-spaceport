@@ -1,0 +1,22 @@
+<div class="flex flex-col mt-4">
+  <div class="flex flex-row m-4 justify-between">
+    <div class="flex flex-col">
+      <button mat-button class="mt-4 glow-on-hover"
+              [ngClass]="{active: pageToShow == 'ship-dock'}"
+              (click)="pageToShowChange.emit('ship-dock')">Show Ship Dock
+      </button>
+    </div>
+    <div class="flex flex-col">
+      @for (ship of queuedShips; track ship.id) {
+        <button mat-button class="mt-4" [disabled]="pageToShow !== 'ship-dock' || !dockingAllowed" (click)="dockShipClicked(ship)">Dock {{ ship.name }}</button>
+      }
+      <button mat-stroked-button class="mt-4" [disabled]="pageToShow !== 'ship-dock'">Unload All Ships</button>
+    </div>
+  </div>
+  <div class="flex flex-row m-4">
+    <button mat-button class="mt-4"
+            [ngClass]="{active: pageToShow == 'help-page'}"
+            (click)="pageToShowChange.emit('help-page')">Show Help
+    </button>
+  </div>
+</div>

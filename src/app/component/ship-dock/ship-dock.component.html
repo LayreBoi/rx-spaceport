@@ -1,5 +1,13 @@
-<div>
-  @for (ship of ships; track ship.id) {
-    <app-ship [ship]="ship"></app-ship>
-  }
+<div class="flex flex-row">
+  <div class=" w-112">
+    @for (ship of ships; track ship.id) {
+      <app-ship
+        [ship]="ship"
+        (undock)="undock.emit(ship)"
+      ></app-ship>
+    }
+  </div>
+  <div>
+    <app-conveyor-belt></app-conveyor-belt>
+  </div>
 </div>
