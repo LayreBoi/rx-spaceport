@@ -1,5 +1,5 @@
 <div class="m-8">
-  <h2>Incoming Protocol</h2>
+  <h2>Protocols</h2>
 
   <mat-accordion [multi]="true" displayMode="flat">
 
@@ -195,6 +195,21 @@
       </div>
       <app-cargo-protocol
         [entries]="$cheatOnFood"
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Small Crates</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list of all incoming cargo, but split all cargo that's bigger than 1 into smaller crates of size 1.</p>
+        <mat-icon matTooltip="Use switchMap(...)"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]="$smallCrates"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 

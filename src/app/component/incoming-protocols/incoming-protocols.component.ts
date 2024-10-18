@@ -59,4 +59,6 @@ export class IncomingProtocolsComponent {
 
   $cheatOnFood: Observable<Cargo> = this.unloadService.getConveyorBelt();
 
+  $smallCrates: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
 }
