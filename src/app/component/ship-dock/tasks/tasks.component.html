@@ -1,0 +1,29 @@
+<div class="m-8">
+  <h2>Features</h2>
+  <div class="flex flex-col ml-6 my-10">
+    <mat-checkbox [checked]="ls.getItem('stopUnloading') == 'true'"
+                  (change)="ls.setItem('stopUnloading', $event.checked ? 'true' : 'false')">Implement the Stop Unloading button
+    </mat-checkbox>
+    <mat-checkbox [checked]="ls.getItem('connectShips') == 'true'"
+                  (change)="ls.setItem('connectShips', $event.checked ? 'true' : 'false')">Connect the other ships to the conveyor belt!
+    </mat-checkbox>
+    <mat-checkbox [checked]="ls.getItem('beltRestart') == 'true'"
+                  (change)="ls.setItem('beltRestart', $event.checked ? 'true' : 'false')">Make the conveyor belt restartable!
+    </mat-checkbox>
+  </div>
+  <h2>Refactorings</h2>
+  <div class="flex flex-col ml-6 my-10">
+    <mat-checkbox [checked]="ls.getItem('menuStateService') == 'true'"
+                  (change)="ls.setItem('menuStateService', $event.checked ? 'true' : 'false')">Move menu a state service
+    </mat-checkbox>
+    <mat-checkbox [checked]="ls.getItem('dockingStateService') == 'true'"
+                  (change)="ls.setItem('dockingStateService', $event.checked ? 'true' : 'false')">Move docking and undocking into a state service
+    </mat-checkbox>
+    <mat-checkbox [checked]="ls.getItem('loadingStateService') == 'true'"
+                  (change)="ls.setItem('loadingStateService', $event.checked ? 'true' : 'false')">Move unloading into a state service
+    </mat-checkbox>
+    <mat-checkbox [checked]="ls.getItem('ngrx') == 'true'"
+                  (change)="ls.setItem('ngrx', $event.checked ? 'true' : 'false')">Refactor the whole state management into NgRx
+    </mat-checkbox>
+  </div>
+</div>

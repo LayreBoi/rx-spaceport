@@ -21,7 +21,10 @@
       </div>
     </div>
 
-    <div class="flex flex-col mt-28 ml-16">
+    <div class="flex flex-col mt-16 ml-16">
+      <div class="w-full mb-4">
+        <button mat-stroked-button class="w-full" [disabled]="true">Restart</button>
+      </div>
       <div class="w-full mb-4">
         <button mat-stroked-button class="w-full" (click)="close()" [disabled]="isBeltClosed">Close</button>
       </div>

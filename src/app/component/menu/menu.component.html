@@ -8,9 +8,10 @@
     </div>
     <div class="flex flex-col">
       @for (ship of queuedShips; track ship.id) {
-        <button mat-button class="mt-4" [disabled]="pageToShow !== 'ship-dock' || !dockingAllowed" (click)="dockShipClicked(ship)">Dock {{ ship.name }}</button>
+        <button mat-button class="mt-4" [disabled]="pageToShow !== 'ship-dock' || !dockingAllowed" (click)="dockShipClicked(ship)">{{ ship.name }} ({{ ship.maxLoad }})</button>
       }
       <button mat-stroked-button class="mt-4" [disabled]="pageToShow !== 'ship-dock'" (click)="unloadAllShipsClicked()">Unload All Ships</button>
+      <button mat-stroked-button class="mt-4" [disabled]="true">Stop Unloading</button>
     </div>
   </div>
   <div class="flex flex-row m-4">

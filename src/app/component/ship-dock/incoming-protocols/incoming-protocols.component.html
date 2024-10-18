@@ -5,7 +5,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>All Incoming Cargo</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="true">
+          </mat-checkbox>
+          All Incoming Cargo
+        </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo.</p>
@@ -20,7 +24,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>All Pristine Cargo</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$allPristineCargo') == 'true'"
+                        (change)="ls.setItem('$allPristineCargo', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          All Pristine Cargo</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, that is not broken.</p>
@@ -35,7 +43,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>First Five Cargo</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$firstFiveCargo') == 'true'"
+                        (change)="ls.setItem('$firstFiveCargo', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          First Five Cargo</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list the first 5 incoming cargo. Protocol must complete afterwards.</p>
@@ -50,7 +62,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Only New Cargo</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$onlyNewCargo') == 'true'"
+                        (change)="ls.setItem('$onlyNewCargo', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Only New Cargo</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo whose type was not seen before.</p>
@@ -65,7 +81,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Everything Like New</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$everythingLikeNew') == 'true'"
+                        (change)="ls.setItem('$everythingLikeNew', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Everything Like New</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but all incoming broken cargo looks repaired.</p>
@@ -80,7 +100,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Three Meds and Foods</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$threeMedsAndFoods') == 'true'"
+                        (change)="ls.setItem('$threeMedsAndFoods', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Three Meds and Foods</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of the first three medicine and the first three food. But please fix them, if they are broken.</p>
@@ -95,10 +119,15 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>The First of each Type in Line</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$firstOfEachType') == 'true'"
+                        (change)="ls.setItem('$firstOfEachType', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          The First of each Type in Line</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p>A list of all incoming cargo, but if multiple cargo of the same type are trickling in a row, just note the first one in the list.</p>
+        <p>A list of all incoming cargo, but if multiple cargo of the same type are trickling in a row, just note the
+          first one in the list.</p>
         <mat-icon matTooltip="Use distinctUntilChanged(...)"
                   matTooltipPosition="left">help
         </mat-icon>
@@ -110,7 +139,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Ignore the First Three</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$ignoreFirstThree') == 'true'"
+                        (change)="ls.setItem('$ignoreFirstThree', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Ignore the First Three</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but we don't want to have the first 3 incoming cargo..</p>
@@ -125,7 +158,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>The Last Two</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$lastTwo') == 'true'"
+                        (change)="ls.setItem('$lastTwo', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          The Last Two</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of the last two.</p>
@@ -140,7 +177,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Ignore the Last Three</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$ignoreLastThree') == 'true'"
+                        (change)="ls.setItem('$ignoreLastThree', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Ignore the Last Three</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but please don't include the last three</p>
@@ -155,7 +196,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>The First 10 Tons</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$firstTenTons') == 'true'"
+                        (change)="ls.setItem('$firstTenTons', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          The First 10 Tons</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but include only as much cargo until you have at most 10 size filled.</p>
@@ -170,7 +215,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Maximum Three Broken</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$maximumThreeBroken') == 'true'"
+                        (change)="ls.setItem('$maximumThreeBroken', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Maximum Three Broken</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but only include 3 broken cargo.</p>
@@ -185,10 +234,15 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Cheating on Food Protocol</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$cheatOnFood') == 'true'"
+                        (change)="ls.setItem('$cheatOnFood', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Cheating on Food Protocol</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p>A list of all incoming cargo, but anytime a non broken food is delivered, write down 2 more foods of size 1.</p>
+        <p>A list of all incoming cargo, but anytime a non broken food is delivered, write down 2 more foods of size
+          1.</p>
         <mat-icon matTooltip="Use repeat(...)"
                   matTooltipPosition="left">help
         </mat-icon>
@@ -200,7 +254,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Small Crates</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$smallCrates') == 'true'"
+                        (change)="ls.setItem('$smallCrates', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Small Crates</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but split all cargo that's bigger than 1 into smaller crates of size 1.</p>
@@ -215,7 +273,11 @@
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>Error on Broken</mat-panel-title>
+        <mat-panel-title>
+          <mat-checkbox [checked]="ls.getItem('$errorOnBroken') == 'true'"
+                        (change)="ls.setItem('$errorOnBroken', $event.checked ? 'true' : 'false')">
+          </mat-checkbox>
+          Error on Broken</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
         <p>A list of all incoming cargo, but if one cargo is broken, terminate this protocol with an error.</p>

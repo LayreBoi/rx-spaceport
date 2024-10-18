@@ -12,6 +12,8 @@ import {Cargo} from "../../../model/ship";
 import {UnloadService} from "../../../service/unload.service";
 import {MatIcon} from "@angular/material/icon";
 import {MatTooltip} from "@angular/material/tooltip";
+import {MatCheckbox} from "@angular/material/checkbox";
+import {LocalStorageService} from "../../../service/local-storage.service";
 
 @Component({
   selector: 'app-incoming-protocols',
@@ -24,13 +26,15 @@ import {MatTooltip} from "@angular/material/tooltip";
     MatExpansionPanelHeader,
     CargoProtocolComponent,
     MatIcon,
-    MatTooltip
+    MatTooltip,
+    MatCheckbox
   ],
   templateUrl: './incoming-protocols.component.html',
   styleUrl: './incoming-protocols.component.scss'
 })
 export class IncomingProtocolsComponent {
 
+  ls = inject(LocalStorageService);
   unloadService = inject(UnloadService);
 
   $allIncomingCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();

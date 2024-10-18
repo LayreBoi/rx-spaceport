@@ -4,6 +4,7 @@ import {ConveyorBeltComponent} from "./conveyor-belt/conveyor-belt.component";
 import {Cargo, Ship} from "../../model/ship";
 import {UnloadService} from "../../service/unload.service";
 import {IncomingProtocolsComponent} from "./incoming-protocols/incoming-protocols.component";
+import {TasksComponent} from "./tasks/tasks.component";
 
 @Component({
   selector: 'app-ship-dock',
@@ -11,7 +12,8 @@ import {IncomingProtocolsComponent} from "./incoming-protocols/incoming-protocol
   imports: [
     ShipComponent,
     ConveyorBeltComponent,
-    IncomingProtocolsComponent
+    IncomingProtocolsComponent,
+    TasksComponent
   ],
   templateUrl: './ship-dock.component.html',
   styleUrl: './ship-dock.component.scss'
