@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter} from '@angular/core';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
 import {ShipComponent} from "./component/ship/ship.component";
 import {ShipDockComponent} from "./component/ship-dock/ship-dock.component";
@@ -30,6 +30,7 @@ export class AppComponent {
 
   dockedShips: Ship[] = [];
   dockingAllowed = true;
+  unloadEmitter = new EventEmitter<void>();
 
   addShip(ship: Ship) {
     this.dockedShips = _.concat(this.dockedShips, ship);
@@ -43,5 +44,9 @@ export class AppComponent {
 
   updateDockingAllowance() {
     this.dockingAllowed = this.dockedShips.length < 3;
+  }
+
+  unloadAllShips() {
+    this.unloadEmitter.emit();
   }
 }

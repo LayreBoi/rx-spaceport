@@ -30,10 +30,15 @@ export class MenuComponent {
   @Output() pageToShowChange = new EventEmitter<string>();
   @Output() dockShip = new EventEmitter<Ship>();
   @Input() dockingAllowed!: boolean;
+  @Output() unloadAllShips = new EventEmitter<void>();
 
   dockShipClicked(ship: Ship) {
     _.remove(this.queuedShips, queuedShip => queuedShip.id === ship.id);
     this.dockShip.emit(ship);
     this.queuedShips = _.concat(this.queuedShips, generateShip());
+  }
+
+  unloadAllShipsClicked() {
+    this.unloadAllShips.emit();
   }
 }

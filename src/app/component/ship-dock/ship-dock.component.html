@@ -6,6 +6,7 @@
         [ship]="ship"
         (undock)="undock.emit(ship)"
         (unload)="unload($event, i)"
+        [unloadEmitter]="unloadEmitter"
       ></app-ship>
     }
   </div>

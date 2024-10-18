@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Cargo, Ship} from "../../model/ship";
 import * as _ from 'lodash'
 import {MatIcon} from "@angular/material/icon";
@@ -28,7 +28,7 @@ import {MatButton} from "@angular/material/button";
   templateUrl: './ship.component.html',
   styleUrl: './ship.component.scss'
 })
-export class ShipComponent {
+export class ShipComponent implements OnInit {
   @Input() ship!: Ship;
   @Output() undock = new EventEmitter<void>();
   @Output() unload = new EventEmitter<Cargo>();
@@ -46,6 +46,13 @@ export class ShipComponent {
         this.unloadLastCargo();
       }
     }));
+  @Input() unloadEmitter!: EventEmitter<void>;
+
+  ngOnInit(): void {
+    this.unloadEmitter.subscribe(() => {
+      this.unloading = true;
+    })
+  }
 
   unloadLastCargo() {
     this.unload.emit(_.last(this.ship.cargoHold)!);

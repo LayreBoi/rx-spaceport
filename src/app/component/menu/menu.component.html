@@ -10,7 +10,7 @@
       @for (ship of queuedShips; track ship.id) {
         <button mat-button class="mt-4" [disabled]="pageToShow !== 'ship-dock' || !dockingAllowed" (click)="dockShipClicked(ship)">Dock {{ ship.name }}</button>
       }
-      <button mat-stroked-button class="mt-4" [disabled]="pageToShow !== 'ship-dock'">Unload All Ships</button>
+      <button mat-stroked-button class="mt-4" [disabled]="pageToShow !== 'ship-dock'" (click)="unloadAllShipsClicked()">Unload All Ships</button>
     </div>
   </div>
   <div class="flex flex-row m-4">

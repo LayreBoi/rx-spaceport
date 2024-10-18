@@ -19,6 +19,7 @@ export class ShipDockComponent {
   @Output() undock = new EventEmitter<Ship>();
 
   unloadService = inject(UnloadService);
+  @Input() unloadEmitter!: EventEmitter<void>;
 
   unload(cargo: Cargo, index: number) {
     this.unloadService.addCargo(cargo, index);
