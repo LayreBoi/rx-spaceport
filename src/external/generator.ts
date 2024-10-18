@@ -7,7 +7,7 @@ export function generateShip(): Ship {
   let maxLoad = rndMaxLoadSize();
   return {
     id: uuidv4(),
-    name: `${_.sample(names)} ${coinflip() ? _.random(10, 99) : numerals.toRoman(_.random(1, 24))}.`,
+    name: `${_.sample(names)} ${fifth() ? _.random(1, 22) : numerals.toRoman(_.random(1, 24))}.`,
     planet: rndPlanet(),
     maxLoad: maxLoad,
     cargoHold: generateCargo(maxLoad)
@@ -32,10 +32,6 @@ function generateCargo(maxLoad: MaxLoadSizes): Cargo[] {
     usedLoad += size;
   }
   return cargo;
-}
-
-function coinflip() {
-  return Math.random() < 0.5;
 }
 
 function fifth() {

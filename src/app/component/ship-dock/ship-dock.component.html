@@ -1,9 +1,11 @@
 <div class="flex flex-row">
-  <div class=" w-112">
-    @for (ship of ships; track ship.id) {
+  <div class="m-8 w-112">
+    <h2>Dock</h2>
+    @for (ship of ships; track ship.id; let  i = $index) {
       <app-ship
         [ship]="ship"
         (undock)="undock.emit(ship)"
+        (unload)="unload($event, i)"
       ></app-ship>
     }
   </div>

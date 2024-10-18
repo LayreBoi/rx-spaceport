@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Ship} from "../../model/ship";
+import {Cargo, Ship} from "../../model/ship";
 import * as _ from 'lodash'
 import {MatIcon} from "@angular/material/icon";
 import {CargoComponent} from "../cargo/cargo.component";
@@ -31,6 +31,7 @@ import {MatButton} from "@angular/material/button";
 export class ShipComponent {
   @Input() ship!: Ship;
   @Output() undock = new EventEmitter<void>();
+  @Output() unload = new EventEmitter<Cargo>();
 
   randomAnimationStyle = `animation-duration: ${_.random(8, 12)}s; animation-delay: ${_.random(0, 3)}s;`;
   unloadingTicker$ = interval(100).pipe(
@@ -39,7 +40,7 @@ export class ShipComponent {
   unloading = false;
   unloadProgress$ = this.unloadingTicker$.pipe(
     map(() => 10 / _.last(this.ship.cargoHold)?.size!),
-    scan((a, b) => (a + b > 100) ? 0 : a + b ),
+    scan((a, b) => (a + b > 100) ? 0 : a + b),
     tap(v => {
       if (v == 100) {
         this.unloadLastCargo();
@@ -47,7 +48,8 @@ export class ShipComponent {
     }));
 
   unloadLastCargo() {
-    this.ship.cargoHold.splice(-1, 1);
+    this.unload.emit(_.last(this.ship.cargoHold)!);
+    this.ship.cargoHold = _.dropRight(this.ship.cargoHold);
   }
 
   uuidToSixth(uuid: string): number {

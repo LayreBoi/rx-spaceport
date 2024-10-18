@@ -42,6 +42,6 @@ export class AppComponent {
   }
 
   updateDockingAllowance() {
-    this.dockingAllowed = this.dockedShips.length < 4;
+    this.dockingAllowed = this.dockedShips.length < 3;
   }
 }
