@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Cargo, Ship} from "../../model/ship";
+import {Cargo, Ship} from "../../../model/ship";
 import * as _ from 'lodash'
 import {MatIcon} from "@angular/material/icon";
-import {CargoComponent} from "../cargo/cargo.component";
+import {CargoComponent} from "../../shared/cargo/cargo.component";
 import {AsyncPipe, NgClass} from "@angular/common";
 import {MatButtonToggle} from "@angular/material/button-toggle";
 import {MatSlideToggle} from "@angular/material/slide-toggle";

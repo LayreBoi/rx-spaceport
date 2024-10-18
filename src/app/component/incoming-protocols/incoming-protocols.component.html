@@ -213,6 +213,21 @@
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Error on Broken</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list of all incoming cargo, but if one cargo is broken, terminate this protocol with an error.</p>
+        <mat-icon matTooltip="Use throwError(...)"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]="$errorOnBroken"
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
   </mat-accordion>
 
 </div>

@@ -12,9 +12,9 @@
 
   @if (error) {
     <div class="flex pl-48 my-2 py-2 bg-slate-800 text-red-500">!!! ERROR !!!</div>
-  }
-
-  @if (completed) {
+  } @else if (completed) {
     <div class="flex pl-48 my-2 py-2 bg-slate-800 text-emerald-400">+++ END OF PROTOCOL +++</div>
+  } @else {
+    <div class="flex pl-48 my-2 py-2 bg-slate-800">{{ dots }}</div>
   }
 </div>

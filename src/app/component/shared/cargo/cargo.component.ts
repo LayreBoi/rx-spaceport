@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
-import {Cargo} from "../../model/ship";
+import {Cargo} from "../../../model/ship";
 import {NgClass} from "@angular/common";
 
 @Component({

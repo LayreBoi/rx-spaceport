@@ -1,10 +1,10 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AsyncPipe, NgClass} from "@angular/common";
-import {CargoComponent} from "../cargo/cargo.component";
+import {CargoComponent} from "../../shared/cargo/cargo.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {FormsModule} from "@angular/forms";
-import {UnloadService} from "../../service/unload.service";
-import {Cargo} from "../../model/ship";
+import {UnloadService} from "../../../service/unload.service";
+import {Cargo} from "../../../model/ship";
 import {MatButton} from "@angular/material/button";
 
 @Component({

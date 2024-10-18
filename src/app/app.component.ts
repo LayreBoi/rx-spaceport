@@ -1,6 +1,6 @@
 import {Component, EventEmitter} from '@angular/core';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {ShipComponent} from "./component/ship/ship.component";
+import {ShipComponent} from "./component/ship-dock/ship/ship.component";
 import {ShipDockComponent} from "./component/ship-dock/ship-dock.component";
 import {MatButton} from "@angular/material/button";
 import {MenuComponent} from "./component/menu/menu.component";
