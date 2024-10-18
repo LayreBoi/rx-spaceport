@@ -1,6 +1,7 @@
 <div class="m-8">
   <h2>Conveyor Belt</h2>
   <div class="flex flex-row">
+
     <div class="flex flex-col mr-8">
       <div class="h-100 mb-8 content-center">
         <div class="arrow flex items-center justify-center">
@@ -10,22 +11,28 @@
       </div>
       <div class="h-100 mb-8 content-center">
         <div class="arrow flex items-center justify-center">
-        <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
+          <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
         </div>
       </div>
       <div class="h-100 mb-8 content-center">
         <div class="arrow flex items-center justify-center">
-        <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
+          <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
         </div>
       </div>
     </div>
-    <div class="mt-40 ml-16">
+
+    <div class="flex flex-col mt-28 ml-16">
+      <div class="w-full mb-4">
+        <button mat-stroked-button class="w-full" (click)="close()" [disabled]="isBeltClosed">Close</button>
+      </div>
       <div
-        class="flex flex-row content-start flex-wrap w-44 p-1 bg-stone-900 border-stone-600 rounded-1xl border-4 h-232">
+        class="flex flex-row content-start flex-wrap w-44 p-1 bg-stone-900 border-stone-600 rounded-1xl border-4 h-232"
+        [ngClass]="{'belt-diabled': isBeltClosed}">
         @for (cargo of storedCargo; track cargo.id) {
           <app-cargo [cargo]="cargo"></app-cargo>
         }
       </div>
     </div>
+
   </div>
 </div>

@@ -26,5 +26,7 @@ export class UnloadService {
     }
   }
 
-
+  close() {
+    this.dockingChannel.complete();
+  }
 }

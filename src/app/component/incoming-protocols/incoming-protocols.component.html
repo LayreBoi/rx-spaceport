@@ -59,157 +59,142 @@
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$onlyNewCargo"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Everything Like New</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but all incoming broken cargo looks repaired.</p>
+        <mat-icon matTooltip="Use map(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$everythingLikeNew"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Three Meds and Foods</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of the first three medicine and the first three food. But please fix them, if they are broken.</p>
+        <mat-icon matTooltip="Use everything you have learned so far in combination. :)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$threeMedsAndFoods"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>The First of each Type in Line</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but if multiple cargo of the same type are trickling in a row, just note the first one in the list.</p>
+        <mat-icon matTooltip="Use distinctUntilChanged(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$firstOfEachType"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Ignore the First Three</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but we don't want to have the first 3 incoming cargo..</p>
+        <mat-icon matTooltip="Use skip(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$ignoreFirstThree"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>The Last Two</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of the last two.</p>
+        <mat-icon matTooltip="Use takeLast(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$lastTwo"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Ignore the Last Three</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but please don't include the last three</p>
+        <mat-icon matTooltip="Use skipLast(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$ignoreLastThree"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>The First 10 Tons</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but include only as much cargo until you have at most 10 size filled.</p>
+        <mat-icon matTooltip="Use scan(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$firstTenTons"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Maximum Three Broken</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but only include 3 broken cargo.</p>
+        <mat-icon matTooltip="Use merge(...) etc. This is experimental :)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
+        [entries]="$maximumThreeBroken"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
+        <mat-panel-title>Cheating on Food Protocol</mat-panel-title>
       </mat-expansion-panel-header>
       <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
+        <p>A list of all incoming cargo, but anytime a non broken food is delivered, write down 2 more foods of size 1.</p>
+        <mat-icon matTooltip="Use repeat(...)"
                   matTooltipPosition="left">help
         </mat-icon>
       </div>
       <app-cargo-protocol
-        [entries]=""
-      ></app-cargo-protocol>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title></mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="flex justify-between">
-        <p></p>
-        <mat-icon matTooltip=""
-                  matTooltipPosition="left">help
-        </mat-icon>
-      </div>
-      <app-cargo-protocol
-        [entries]=""
+        [entries]="$cheatOnFood"
       ></app-cargo-protocol>
     </mat-expansion-panel>
 

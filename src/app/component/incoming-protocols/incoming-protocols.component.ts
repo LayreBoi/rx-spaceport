@@ -39,4 +39,24 @@ export class IncomingProtocolsComponent {
 
   $firstFiveCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
 
+  $onlyNewCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $everythingLikeNew: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $threeMedsAndFoods: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $firstOfEachType: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $ignoreFirstThree: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $lastTwo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $ignoreLastThree: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $firstTenTons: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $maximumThreeBroken: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
+  $cheatOnFood: Observable<Cargo> = this.unloadService.getConveyorBelt();
+
 }
