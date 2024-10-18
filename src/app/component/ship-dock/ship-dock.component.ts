@@ -3,7 +3,7 @@ import {ShipComponent} from "./ship/ship.component";
 import {ConveyorBeltComponent} from "./conveyor-belt/conveyor-belt.component";
 import {Cargo, Ship} from "../../model/ship";
 import {UnloadService} from "../../service/unload.service";
-import {IncomingProtocolsComponent} from "../incoming-protocols/incoming-protocols.component";
+import {IncomingProtocolsComponent} from "./incoming-protocols/incoming-protocols.component";
 
 @Component({
   selector: 'app-ship-dock',

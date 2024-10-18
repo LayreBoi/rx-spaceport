@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {interval, Observable, scan, takeWhile} from 'rxjs';
-import {Cargo} from "../../../model/ship";
-import {CargoComponent} from "../../shared/cargo/cargo.component";
+import {Cargo} from "../../../../model/ship";
+import {CargoComponent} from "../../../shared/cargo/cargo.component";
 
 @Component({
   selector: 'app-cargo-protocol',

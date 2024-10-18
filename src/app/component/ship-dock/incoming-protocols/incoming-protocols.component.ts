@@ -8,8 +8,8 @@ import {
 } from "@angular/material/expansion";
 import {Observable} from "rxjs";
 import {CargoProtocolComponent} from "./protocol/cargo-protocol.component";
-import {Cargo} from "../../model/ship";
-import {UnloadService} from "../../service/unload.service";
+import {Cargo} from "../../../model/ship";
+import {UnloadService} from "../../../service/unload.service";
 import {MatIcon} from "@angular/material/icon";
 import {MatTooltip} from "@angular/material/tooltip";
 
