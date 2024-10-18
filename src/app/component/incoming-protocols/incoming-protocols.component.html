@@ -1,0 +1,218 @@
+<div class="m-8">
+  <h2>Incoming Protocol</h2>
+
+  <mat-accordion [multi]="true" displayMode="flat">
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>All Incoming Cargo</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list of all incoming cargo.</p>
+        <mat-icon matTooltip="This protocol is already correct"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]="$allIncomingCargo"
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>All Pristine Cargo</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list of all incoming cargo, that is not broken.</p>
+        <mat-icon matTooltip="Use filter(...)"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]="$allPristineCargo"
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>First Five Cargo</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list the first 5 incoming cargo. Protocol must complete afterwards.</p>
+        <mat-icon matTooltip="Use take(...)"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]="$firstFiveCargo"
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Only New Cargo</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p>A list of all incoming cargo whose type was not seen before.</p>
+        <mat-icon matTooltip="Use distinct(...)"
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title></mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex justify-between">
+        <p></p>
+        <mat-icon matTooltip=""
+                  matTooltipPosition="left">help
+        </mat-icon>
+      </div>
+      <app-cargo-protocol
+        [entries]=""
+      ></app-cargo-protocol>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>

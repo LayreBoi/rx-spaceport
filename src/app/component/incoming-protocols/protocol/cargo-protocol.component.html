@@ -1,0 +1,20 @@
+<div class="flex flex-col">
+  @for (cargo of cargo; track cargo.id) {
+    <div class="flex flex-row pl-4 my-2 bg-slate-800">
+      <div class="w-44">
+        <app-cargo [cargo]="cargo"></app-cargo>
+      </div>
+      <div class="flex items-center">
+        {{ cargo.size }} {{ cargo.type }} {{ cargo.broken ? '(broken)' : '' }}
+      </div>
+    </div>
+  }
+
+  @if (error) {
+    <div class="flex pl-48 my-2 py-2 bg-slate-800 text-red-500">!!! ERROR !!!</div>
+  }
+
+  @if (completed) {
+    <div class="flex pl-48 my-2 py-2 bg-slate-800 text-emerald-400">+++ END OF PROTOCOL +++</div>
+  }
+</div>
