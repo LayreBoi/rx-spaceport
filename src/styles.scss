@@ -6,20 +6,6 @@
 
 @include mat.core();
 
-//$theme: mat.define-theme((
-//  color: (
-//    theme-type: dark,
-//    primary: mat.$violet-palette,
-//  ),
-//  typography: (
-//    brand-family: 'Comic Sans',
-//    bold-weight: 900
-//  ),
-//  density: (
-//    scale: -1
-//  )
-//));
-
 html {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   --mat-expansion-header-indicator-color: var(--mdc-text-button-label-text-color);
@@ -27,7 +13,6 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  //color: var(--mdc-text-button-label-text-color);
   background: -webkit-linear-gradient(#bbdede, #338b8b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

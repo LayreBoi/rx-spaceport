@@ -32,7 +32,7 @@
         class="flex flex-row content-start flex-wrap w-44 p-1 bg-stone-900 border-stone-600 rounded-1xl border-4 h-232"
         [ngClass]="{'belt-diabled': isBeltClosed}">
         @for (cargo of storedCargo; track cargo.id) {
-          <app-cargo [cargo]="cargo"></app-cargo>
+          <app-cargo class="belt-cargo" [cargo]="cargo"></app-cargo>
         }
       </div>
     </div>

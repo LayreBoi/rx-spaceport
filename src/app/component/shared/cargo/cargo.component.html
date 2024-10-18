@@ -1,5 +1,6 @@
 <div class="relative">
   <div class="h-8 m-1 flex justify-center items-center rounded-md border-2"
+       style="opacity:{{1 - (unloadingProgress / 100)}}"
        [ngClass]="{
           'w-8': (cargo.size === 1),
           'w-18': (cargo.size === 2),
@@ -30,5 +31,4 @@
       <mat-icon>question_mark</mat-icon>
     }
   </div>
-  <div class="absolute top-0 w-full bg-stone-900 " style="height:{{unloadingProgress}}%"></div>
 </div>
