@@ -17,5 +17,6 @@ export class CargoComponent {
 
   @Input() cargo!: Cargo;
   @Input() unloadingProgress = 0;
+  @Input() small = false;
 
 }

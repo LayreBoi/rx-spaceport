@@ -1,8 +1,8 @@
 <div class="flex flex-col">
   @for (cargo of cargo; track cargo.id) {
-    <div class="flex flex-row pl-4 my-2 bg-slate-800">
-      <div class="w-44">
-        <app-cargo [cargo]="cargo"></app-cargo>
+    <div class="line flex flex-row pl-4 my-1 bg-slate-800 text-xs">
+      <div class="flex justify-end w-28 pr-4">
+        <app-cargo [cargo]="cargo" [small]="true"></app-cargo>
       </div>
       <div class="flex items-center">
         {{ cargo.size }} {{ cargo.type }} {{ cargo.broken ? '(broken)' : '' }}
@@ -11,10 +11,10 @@
   }
 
   @if (error) {
-    <div class="flex pl-48 my-2 py-2 bg-slate-800 text-red-500">!!! ERROR !!!</div>
+    <div class="line flex pl-32 my-1 py-2 bg-slate-800 text-red-500 text-xs">!!! ERROR !!!</div>
   } @else if (completed) {
-    <div class="flex pl-48 my-2 py-2 bg-slate-800 text-emerald-400">+++ END OF PROTOCOL +++</div>
+    <div class="line flex pl-32 my-1 py-2 bg-slate-800 text-emerald-400 text-xs">+++ END OF PROTOCOL +++</div>
   } @else {
-    <div class="flex pl-48 my-2 py-2 bg-slate-800">{{ dots }}</div>
+    <div class="line flex pl-32 my-1 py-2 bg-slate-800 text-xs">{{ dots }}</div>
   }
 </div>
