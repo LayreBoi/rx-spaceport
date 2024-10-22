@@ -39,32 +39,60 @@ export class IncomingProtocolsComponent {
 
   $allIncomingCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
 
-  $allPristineCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $allPristineCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $firstFiveCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $firstFiveCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $onlyNewCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $onlyNewCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $everythingLikeNew: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $everythingLikeNew: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $threeMedsAndFoods: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $threeMedsAndFoods: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $firstOfEachType: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $firstOfEachType: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $ignoreFirstThree: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $ignoreFirstThree: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $lastTwo: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $lastTwo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $ignoreLastThree: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $ignoreLastThree: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $firstTenTons: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $firstTenTons: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $maximumThreeBroken: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $maximumThreeBroken: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $cheatOnFood: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $cheatOnFood: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $smallCrates: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $smallCrates: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
-  $errorOnBroken: Observable<Cargo> = this.unloadService.getConveyorBelt();
+  $errorOnBroken: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
+    // TODO implement here
+  );
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
 import {ShipComponent} from "./component/ship-dock/ship/ship.component";
 import {ShipDockComponent} from "./component/ship-dock/ship-dock.component";
@@ -7,6 +7,7 @@ import {MenuComponent} from "./component/menu/menu.component";
 import {HelpPageComponent} from "./component/help-page/help-page.component";
 import {Ship} from "./model/ship";
 import * as _ from 'lodash';
+import {generateShip} from "../external/generator";
 
 @Component({
   selector: 'app-root',
@@ -24,13 +25,17 @@ import * as _ from 'lodash';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'rx-spaceport';
   pageToShow = 'ship-dock';
 
   dockedShips: Ship[] = [];
   dockingAllowed = true;
   unloadEmitter = new EventEmitter<void>();
+
+  ngOnInit(): void {
+    this.addShip(generateShip());
+  }
 
   addShip(ship: Ship) {
     this.dockedShips = _.concat(this.dockedShips, ship);
