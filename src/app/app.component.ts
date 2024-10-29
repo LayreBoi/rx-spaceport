@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, inject, OnInit} from '@angular/core';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
 import {ShipComponent} from "./component/ship-dock/ship/ship.component";
 import {ShipDockComponent} from "./component/ship-dock/ship-dock.component";
@@ -9,6 +9,8 @@ import {Ship} from "./model/ship";
 import * as _ from 'lodash';
 import {generateShip} from "../external/generator";
 import {ShootingRangeComponent} from "./component/shooting-range/shooting-range.component";
+import {Store} from "@ngrx/store";
+import {startUp} from "./store/app.actions";
 
 @Component({
   selector: 'app-root',
@@ -28,6 +30,7 @@ import {ShootingRangeComponent} from "./component/shooting-range/shooting-range.
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  store = inject(Store);
   title = 'rx-spaceport';
   pageToShow = 'ship-dock';
 
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.addShip(generateShip());
+    this.store.dispatch(startUp());
   }
 
   addShip(ship: Ship) {
