@@ -1,0 +1,22 @@
+.laser {
+  position: absolute;
+  left: 75px;
+  background-color: red;
+  width: 80px;
+  height: 2px;
+  animation: shot;
+  animation-duration: 300ms;
+  animation-iteration-count: 5;
+}
+
+.laser-left {
+  top: 17px;
+}
+
+.laser-right {
+  top: 101px;
+}
+
+@keyframes shot {
+  100% { transform: translateX(2000px); }
+}

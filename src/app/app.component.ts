@@ -8,6 +8,7 @@ import {HelpPageComponent} from "./component/help-page/help-page.component";
 import {Ship} from "./model/ship";
 import * as _ from 'lodash';
 import {generateShip} from "../external/generator";
+import {ShootingRangeComponent} from "./component/shooting-range/shooting-range.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import {generateShip} from "../external/generator";
     ShipDockComponent,
     MatButton,
     MenuComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    ShootingRangeComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

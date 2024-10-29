@@ -16,6 +16,12 @@
   </div>
   <div class="flex flex-row m-4">
     <button mat-button class="mt-4"
+            [ngClass]="{active: pageToShow == 'shooting-range'}"
+            (click)="pageToShowChange.emit('shooting-range')">Shooting Range
+    </button>
+  </div>
+  <div class="flex flex-row m-4">
+    <button mat-button class="mt-4"
             [ngClass]="{active: pageToShow == 'help-page'}"
             (click)="pageToShowChange.emit('help-page')">Show Help
     </button>
