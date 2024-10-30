@@ -10,6 +10,7 @@ export class TargetPracticeService {
   constructor() { }
 
   shoot(): Observable<Hit> {
+    new Audio("/laser-shot.mp3").play();
     return of(1).pipe(
       delay(1000),
       map(() => {
