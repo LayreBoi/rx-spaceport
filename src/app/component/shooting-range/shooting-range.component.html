@@ -2,7 +2,7 @@
   <h2>Shooting Range</h2>
   <div class="flex flex-row my-8">
     <div class="relative grow overflow-hidden">
-      @if (isShooting) {
+      @if (isShooting()) {
         <div class="laser laser-left">
         </div>
         <div class="laser laser-right">
@@ -16,17 +16,17 @@
       </svg>
     </div>
     <div class="pr-8">
-      @if (response === 'hit') {
+      @if (response() === 'hit') {
         <div
           class="flex justify-center text-2xl items-center w-60 h-20 border-2 rounded bg-slate-800 border-slate-200 text-slate-200">
           HIT
         </div>
-      } @else if (response === 'critical hit') {
+      } @else if (response() === 'critical hit') {
         <div
           class="flex justify-center text-2xl items-center w-60 h-20 border-2 rounded bg-emerald-950 border-emerald-500 text-emerald-500">
           * CRITICAL HIT *
         </div>
-      } @else if (response === 'miss') {
+      } @else if (response() === 'miss') {
         <div
           class="flex justify-center text-2xl items-center w-60 h-20 border-2 rounded bg-rose-950 border-rose-600 text-rose-600">
           !!! MISS !!!
@@ -37,7 +37,7 @@
   <div class="my-8">
   </div>
   <div class="">
-    <button mat-stroked-button (click)="shoot()" [disabled]="isShooting">SHOOT!</button>
+    <button mat-stroked-button (click)="shoot()" [disabled]="isShooting()">SHOOT!</button>
   </div>
   <app-shootings-stats></app-shootings-stats>
   <div class="">

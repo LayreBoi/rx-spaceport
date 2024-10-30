@@ -1,7 +1,8 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {inject} from "@angular/core";
-import {startUp} from "./app.actions";
-import {tap} from "rxjs";
+import {crit, hit, miss, shoot, startUp} from "./app.actions";
+import {catchError, exhaustMap, map, of, switchMap, tap} from "rxjs";
+import { TargetPracticeService } from "../service/target-practice.service";
 
 export const logStartup$ = createEffect((
     actions$ = inject(Actions)) => {
@@ -13,4 +14,22 @@ export const logStartup$ = createEffect((
     )
   },
   {functional: true, dispatch: false}
+);
+
+export const shooting$ = createEffect((
+  (
+    action$ = inject(Actions),
+    targetPracticeService = inject(TargetPracticeService)
+  ) => {
+    return action$.pipe(
+      ofType(shoot),
+      exhaustMap(() =>
+        targetPracticeService.shoot().pipe(
+          map(result => result === 'critical hit' ? crit() : hit()),
+          catchError(() => of(miss()))
+        )
+      )
+    )
+  }),
+  {functional: true}
 );

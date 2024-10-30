@@ -1,7 +1,10 @@
 import {Component, inject} from '@angular/core';
 import {MatButton} from "@angular/material/button";
-import {TargetPracticeService} from "../../service/target-practice.service";
 import {ShootingsStatsComponent} from "./shootings-stats/shootings-stats.component";
+import { Store } from '@ngrx/store';
+import { shoot, reset } from '../../store/app.actions';
+import { selectIsShooting, selectResponse } from '../../store/app.selectors';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-shooting-range',
@@ -14,27 +17,16 @@ import {ShootingsStatsComponent} from "./shootings-stats/shootings-stats.compone
   styleUrl: './shooting-range.component.scss'
 })
 export class ShootingRangeComponent {
-  private targetPracticeService = inject(TargetPracticeService);
+  private store = inject(Store);
 
-  response = '';
-  isShooting = false;
+  response = this.store.selectSignal(selectResponse);
+  isShooting = this.store.selectSignal(selectIsShooting);
 
   shoot() {
-    this.isShooting = true;
-    this.response = '';
-    this.targetPracticeService.shoot().subscribe({
-      next: value => {
-        this.response = value;
-        this.isShooting = false;
-      },
-      error: () => {
-        this.response = "miss";
-        this.isShooting = false;
-      }
-    });
+    this.store.dispatch(shoot());
   }
 
   reset() {
-    // TODO
+    this.store.dispatch(reset())
   }
 }
