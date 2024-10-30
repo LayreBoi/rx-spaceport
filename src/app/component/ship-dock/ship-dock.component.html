@@ -4,9 +4,9 @@
     @for (ship of ships; track ship.id; let  i = $index) {
       <app-ship
         [ship]="ship"
-        (undock)="undock.emit(ship)"
         (unload)="unload($event, i)"
         [unloadEmitter]="unloadEmitter"
+        [stopUnloadingEmitter]="stopUnloadingEmitter"
       ></app-ship>
     }
   </div>

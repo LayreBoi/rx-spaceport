@@ -35,7 +35,7 @@ export class ConveyorBeltComponent implements OnInit {
 
   toggled(index: number) {
     this.connect[index] = !this.connect[index];
-    this.unloadService.toggleDockingChannel(this.connect[index]);
+    this.unloadService.toggleDockingChannel(index, this.connect[index]);
   }
 
   initConveyorBelt() {
@@ -49,5 +49,11 @@ export class ConveyorBeltComponent implements OnInit {
 
   close() {
     this.unloadService.close();
+  }
+
+  restart() {
+    this.unloadService.restart();
+    this.isBeltClosed = false;
+    this.initConveyorBelt();
   }
 }

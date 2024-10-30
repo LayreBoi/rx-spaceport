@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {filter, Observable, Subject} from "rxjs";
+import {filter, map, merge, Observable, Subject} from "rxjs";
 import {Cargo} from "../model/ship";
 
 @Injectable({
@@ -7,26 +7,32 @@ import {Cargo} from "../model/ship";
 })
 export class UnloadService {
 
-  private dockingChannel: Subject<Cargo> = new Subject();
-  private dockingChannelActive = false;
+  private dockingChannel: Subject<{
+    cargo: Cargo,
+    index: number
+  }> = new Subject();
+  private dockingChannelActive = [false, false, false];
 
   getConveyorBelt(): Observable<Cargo> {
     return this.dockingChannel.asObservable().pipe(
-      filter(() => this.dockingChannelActive)
+      filter((v) => this.dockingChannelActive[v.index]),
+      map((v) => v.cargo)
     );
   }
 
-  toggleDockingChannel(toggle: boolean) {
-    this.dockingChannelActive = toggle;
+  toggleDockingChannel(toggles: number, toggle: boolean) {
+    this.dockingChannelActive[toggles] = toggle;
   }
 
   addCargo(cargo: Cargo, index: number) {
-    if (index === 0) {
-      this.dockingChannel.next(cargo);
-    }
+    this.dockingChannel.next({cargo, index});
   }
 
   close() {
     this.dockingChannel.complete();
+  }
+
+  restart() {
+    this.dockingChannel = new Subject();
   }
 }

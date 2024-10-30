@@ -6,7 +6,7 @@ import {
   MatExpansionPanelHeader,
   MatExpansionPanelTitle
 } from "@angular/material/expansion";
-import {Observable} from "rxjs";
+import {distinct, distinctUntilChanged, filter, flatMap, map, merge, mergeMap, Observable, of, repeat, scan, skip, skipLast, switchMap, take, takeLast, tap, throwError} from "rxjs";
 import {CargoProtocolComponent} from "./protocol/cargo-protocol.component";
 import {Cargo} from "../../../model/ship";
 import {UnloadService} from "../../../service/unload.service";
@@ -14,6 +14,7 @@ import {MatIcon} from "@angular/material/icon";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {LocalStorageService} from "../../../service/local-storage.service";
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-incoming-protocols',
@@ -40,59 +41,105 @@ export class IncomingProtocolsComponent {
   $allIncomingCargo: Observable<Cargo> = this.unloadService.getConveyorBelt();
 
   $allPristineCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    filter(cargo => !cargo.broken)
   );
 
   $firstFiveCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    take(5)
   );
 
   $onlyNewCargo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    distinct(cargo => cargo.type)
   );
 
   $everythingLikeNew: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    map(cargo => {
+      if (cargo.broken) return {
+        ...cargo,
+        broken: false
+      }
+      return cargo;
+    })
   );
 
   $threeMedsAndFoods: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    filter(cargo => cargo.type === 'Medicine' || cargo.type === 'Food'),
+    take(6),
+    map(cargo => {
+      if (cargo.broken) return {
+        ...cargo,
+        broken: false
+      }
+      return cargo;
+    })
   );
 
   $firstOfEachType: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    distinctUntilChanged((previousCargo, currentCargo) => previousCargo.type === currentCargo.type)
   );
 
   $ignoreFirstThree: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    skip(3)
   );
 
   $lastTwo: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    takeLast(2)
   );
 
   $ignoreLastThree: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    skipLast(3)
   );
+
+  sum: number = 0;
 
   $firstTenTons: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    tap(cargo => this.sum += cargo.size),
+    scan<Cargo, [number, Cargo | undefined]>((acc, cargo) => [acc[0] + cargo.size, cargo], [0, undefined]),
+    filter(tuple => tuple[0] <= 10),
+    map(tuple => tuple[1]!)
   );
 
+  sum2: number = 0;
+
   $maximumThreeBroken: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    map(cargo => {
+      if (cargo.broken && this.sum2 < 3) {
+        this.sum2++;
+        return cargo;
+      }
+      if (cargo.broken && this.sum2 >= 3) {
+        return undefined;
+      }
+      return cargo;
+    }),
+    filter(cargo => cargo !== undefined),
   );
 
   $cheatOnFood: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    // switchMap(cargo => of(merge(
+    //   of(cargo),
+    //   of({...cargo} as Cargo).pipe(
+    //     repeat(2),
+    //     filter(() => cargo.type === 'Food')
+    //   )
+    // )))
   );
 
   $smallCrates: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    switchMap(cargo => of({
+      ...cargo,
+      id: uuidv4(), // Avoid warning about duplicate keys
+      size: 1
+    } as Cargo).pipe(repeat(cargo.size)))
   );
 
   $errorOnBroken: Observable<Cargo> = this.unloadService.getConveyorBelt().pipe(
-    // TODO implement here
+    mergeMap(cargo => {
+      if (cargo.broken) {
+        return throwError(() => new Error('Broken cargo found'));
+      }
+      return of(cargo);
+    })
   );
 
 }

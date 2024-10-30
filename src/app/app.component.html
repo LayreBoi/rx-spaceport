@@ -2,17 +2,15 @@
   <mat-sidenav mode="side" opened>
     <app-menu
       [(pageToShow)]="pageToShow"
-      [dockingAllowed]="dockingAllowed"
-      (dockShip)="addShip($event)"
-      (unloadAllShips)="unloadAllShips()">
+      (unloadAllShips)="unloadAllShips()"
+      (stopUnloading)="stopUnloading()">
     </app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     @if (pageToShow === 'ship-dock') {
       <app-ship-dock
-        (undock)="undock($event)"
-        [ships]="dockedShips"
-        [unloadEmitter]="unloadEmitter">
+        [unloadEmitter]="unloadEmitter"
+        [stopUnloadingEmitter]="stopUnloadingEmitter">
       </app-ship-dock>
     } @else if (pageToShow === 'help-page') {
       <app-help-page></app-help-page>

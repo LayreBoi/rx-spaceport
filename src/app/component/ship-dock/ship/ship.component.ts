@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
 import {Cargo, Ship} from "../../../model/ship";
 import * as _ from 'lodash'
 import {MatIcon} from "@angular/material/icon";
@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {filter, interval, map, scan, tap} from "rxjs";
 import {MatProgressBar} from "@angular/material/progress-bar";
 import {MatButton} from "@angular/material/button";
+import { StateService } from '../../../service/state.service';
 
 @Component({
   selector: 'app-ship',
@@ -30,7 +31,6 @@ import {MatButton} from "@angular/material/button";
 })
 export class ShipComponent implements OnInit {
   @Input() ship!: Ship;
-  @Output() undock = new EventEmitter<void>();
   @Output() unload = new EventEmitter<Cargo>();
 
   randomAnimationStyle = `animation-duration: ${_.random(8, 12)}s; animation-delay: ${_.random(0, 3)}s;`;
@@ -47,11 +47,17 @@ export class ShipComponent implements OnInit {
       }
     }));
   @Input() unloadEmitter!: EventEmitter<void>;
+  @Input() stopUnloadingEmitter!: EventEmitter<void>;
+
+  stateService = inject(StateService);
 
   ngOnInit(): void {
     this.unloadEmitter.subscribe(() => {
       this.unloading = true;
-    })
+    });
+    this.stopUnloadingEmitter.subscribe(() => {
+      this.unloading = false;
+    });
   }
 
   unloadLastCargo() {
@@ -61,5 +67,9 @@ export class ShipComponent implements OnInit {
 
   uuidToSixth(uuid: string): number {
     return Number("0x" + uuid.substring(0, 8)) % 6;
+  }
+
+  undockClicked() {
+    this.stateService.undockShip(this.ship.id);
   }
 }

@@ -25,17 +25,14 @@ import {generateShip} from "../external/generator";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'rx-spaceport';
   pageToShow = 'ship-dock';
 
   dockedShips: Ship[] = [];
   dockingAllowed = true;
   unloadEmitter = new EventEmitter<void>();
-
-  ngOnInit(): void {
-    this.addShip(generateShip());
-  }
+  stopUnloadingEmitter = new EventEmitter<void>();
 
   addShip(ship: Ship) {
     this.dockedShips = _.concat(this.dockedShips, ship);
@@ -53,5 +50,9 @@ export class AppComponent implements OnInit {
 
   unloadAllShips() {
     this.unloadEmitter.emit();
+  }
+
+  stopUnloading() {
+    this.stopUnloadingEmitter.emit();
   }
 }
