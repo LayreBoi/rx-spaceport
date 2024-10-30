@@ -15,10 +15,13 @@ export class TargetPracticeService {
       delay(1000),
       map(() => {
         if (this.third()) {
+          new Audio("/critical-hit.mp3").play();
           return 'critical hit';
         } else if (this.third()) {
+          new Audio("/miss.mp3").play();
           throw Error('missed the target!');
         } else {
+          new Audio("/hit.mp3").play();
           return 'hit';
         }
       })
