@@ -11,19 +11,19 @@
       </div>
       <div class="h-100 mb-8 content-center">
         <div class="arrow flex items-center justify-center">
-          <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
+          <mat-slide-toggle [ngModel]="connect[1]" (ngModelChange)="toggled(1)"><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
         </div>
       </div>
       <div class="h-100 mb-8 content-center">
         <div class="arrow flex items-center justify-center">
-          <mat-slide-toggle disabled><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
+          <mat-slide-toggle [ngModel]="connect[2]" (ngModelChange)="toggled(2)"><span class="pl-2 font-bold">Connect</span></mat-slide-toggle>
         </div>
       </div>
     </div>
 
     <div class="flex flex-col mt-16 ml-16">
       <div class="w-full mb-4">
-        <button mat-stroked-button class="w-full" [disabled]="true">Restart</button>
+        <button mat-stroked-button class="w-full" (click)="restart()" [disabled]="!isBeltClosed">Restart</button>
       </div>
       <div class="w-full mb-4">
         <button mat-stroked-button class="w-full" (click)="close()" [disabled]="isBeltClosed">Close</button>

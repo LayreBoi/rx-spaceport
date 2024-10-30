@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
   dockedShips: Ship[] = [];
   dockingAllowed = true;
   unloadEmitter = new EventEmitter<void>();
+  stopUnloadingEmitter = new EventEmitter<void>();
 
   ngOnInit(): void {
     this.addShip(generateShip());
@@ -59,5 +60,9 @@ export class AppComponent implements OnInit {
 
   unloadAllShips() {
     this.unloadEmitter.emit();
+  }
+
+  stopUnloading() {
+    this.stopUnloadingEmitter.emit();
   }
 }
